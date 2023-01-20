@@ -1,4 +1,8 @@
 package test;
+import static org.testng.Assert.assertEquals;
+
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.Login_Page_Objects;
 
 public class Login_Test {
+	private static final TimeUnit SECONDS = null;
 	WebDriver driver = null;
 	
 
@@ -32,6 +37,9 @@ public class Login_Test {
 		obj.enter_email("wrong_email");
 		obj.enter_password("Internshala@123");
 		obj.click_login();
+		String expectedUrl = "https://inuvest.tech";
+		String actualUrl = "https://inuvest.tech/dashboard/liveStrategies";
+		assertEquals(actualUrl, expectedUrl, "Url is mismatched");
 		
 		}
 	
@@ -44,6 +52,9 @@ public class Login_Test {
 		obj.enter_email("testprofile@inuvest.tech");
 		obj.enter_password("wrong password");
 		obj.click_login();
+		String expectedUrl = "https://inuvest.tech";
+		String actualUrl = "https://inuvest.tech/dashboard/liveStrategies";
+		assertEquals(actualUrl, expectedUrl, "Url is mismatched");
 		}
 	
 	
@@ -55,6 +66,9 @@ public class Login_Test {
 		obj.enter_email("wrong_email");
 		obj.enter_password("wrong_password");
 		obj.click_login();
+		String expectedUrl = "https://inuvest.tech";
+		String actualUrl = "https://inuvest.tech/dashboard/liveStrategies";
+		assertEquals(actualUrl, expectedUrl, "Url is mismatched");
 		}
 	
 	@Test
@@ -65,6 +79,12 @@ public class Login_Test {
 		obj.enter_email("testprofile@inuvest.tech");
 		obj.enter_password("Internshala@123");
 		obj.click_login();
+		
+		String actualUrl = driver.getCurrentUrl();
+
+		String expectedUrl = "https://inuvest.tech/dashboard/liveStrategies";
+		
+		assertEquals(actualUrl, expectedUrl, "Url is mismatched");
 	}
 	
 	@Test
@@ -80,7 +100,7 @@ public class Login_Test {
 
 	@AfterTest
 	public void teardown() {
-		
-		driver.close();
+//		
+//		driver.close();
 	}
 }

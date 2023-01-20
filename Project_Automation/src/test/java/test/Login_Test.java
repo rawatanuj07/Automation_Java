@@ -1,24 +1,86 @@
 package test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import pages.Login_Page_Objects;
 
 public class Login_Test {
+	WebDriver driver = null;
+	
 
-
-
-
-	@Test
-	public static void main(String[] args) {
+	@BeforeTest
+	public void setup() {
+		
 		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
+		
+	
+	}
+	
+	@Test
+	public void a_test() {
+		Login_Page_Objects obj= new Login_Page_Objects(driver);
+	
+		driver.get("https://www.inuvest.tech/auth");
+		obj.enter_email("wrong_email");
+		obj.enter_password("Internshala@123");
+		obj.click_login();
+		
+		}
+	
+	
+	@Test
+	public void b_test() {
+		Login_Page_Objects obj= new Login_Page_Objects(driver);
+	
+		driver.get("https://www.inuvest.tech/auth");
+		obj.enter_email("testprofile@inuvest.tech");
+		obj.enter_password("wrong password");
+		obj.click_login();
+		}
+	
+	
+	@Test
+	public void c_test() {
+		Login_Page_Objects obj= new Login_Page_Objects(driver);
+	
+		driver.get("https://www.inuvest.tech/auth");
+		obj.enter_email("wrong_email");
+		obj.enter_password("wrong_password");
+		obj.click_login();
+		}
+	
+	@Test
+	public void d_test() {
+		Login_Page_Objects obj= new Login_Page_Objects(driver);
+	
+		driver.get("https://www.inuvest.tech/auth");
+		obj.enter_email("testprofile@inuvest.tech");
+		obj.enter_password("Internshala@123");
+		obj.click_login();
+	}
+	
+	@Test
+	public void e_test() {
+		
+		driver.get("https://inuvest.tech");
+		driver.findElement(By.xpath("/html/body/app-root/nb-layout/nb-layout-column/div/div/app-home/div/div[3]/button[3]")).click();
+		
 
-		driver.get("https://www.google.com");
+		WebElement element = driver.findElement(By.xpath("/html/body/app-root/nb-layout/nb-layout-column/div/div/app-home/div/div[3]/button[3]"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+	}
 
-
-
-
+	@AfterTest
+	public void teardown() {
+		
+		driver.close();
 	}
 }

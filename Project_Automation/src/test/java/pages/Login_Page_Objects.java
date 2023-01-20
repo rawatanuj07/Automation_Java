@@ -4,11 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class Login_Page_Objects {
-	WebDriver driver= null;
+	 WebDriver driver= null;
 
 	By locate_email = By.name("userEmail");
 	By locate_password = By.name("userPassword");
 	By locate_login = By.xpath("//*[@id=\"first\"]/div[3]/button");
+	
+	public Login_Page_Objects(WebDriver driver) {
+			this.driver = driver;
+	}
 
 
 	public void enter_email(String text) {

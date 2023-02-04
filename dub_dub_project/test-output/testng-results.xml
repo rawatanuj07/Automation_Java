@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-02-04T18:14:03 IST" name="Default suite" finished-at="2023-02-04T18:14:09 IST" duration-ms="6793">
+    <groups>
+    </groups>
+    <test started-at="2023-02-04T18:14:03 IST" name="Default test" finished-at="2023-02-04T18:14:09 IST" duration-ms="6793">
+      <class name="test.test">
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.test@72f926e6]" started-at="2023-02-04T18:14:03 IST" name="setup" finished-at="2023-02-04T18:14:06 IST" duration-ms="3208" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="testa()[pri:0, instance:test.test@72f926e6]" started-at="2023-02-04T18:14:06 IST" name="testa" finished-at="2023-02-04T18:14:09 IST" duration-ms="3312" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testa -->
+        <test-method signature="testb()[pri:0, instance:test.test@72f926e6]" started-at="2023-02-04T18:14:09 IST" name="testb" finished-at="2023-02-04T18:14:09 IST" duration-ms="101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testb -->
+        <test-method signature="testc()[pri:0, instance:test.test@72f926e6]" started-at="2023-02-04T18:14:09 IST" name="testc" finished-at="2023-02-04T18:14:09 IST" duration-ms="114" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testc -->
+      </class> <!-- test.test -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
